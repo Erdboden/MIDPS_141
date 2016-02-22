@@ -32,6 +32,7 @@ object Form1: TForm1
     Top = 72
     Width = 185
     Height = 185
+    OnPaint = PaintBox2Paint
   end
   object Edit1: TEdit
     Left = 112

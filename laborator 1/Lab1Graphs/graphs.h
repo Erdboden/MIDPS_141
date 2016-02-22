@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
         void __fastcall Timer2Timer(TObject *Sender);
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall Button3Click(TObject *Sender);
+        void __fastcall PaintBox2Paint(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

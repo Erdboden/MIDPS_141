@@ -13,6 +13,8 @@
 TForm1 *Form1;
 struct date d;
 struct time t;
+//TRect rect, sursa, destinatie;
+int xCurr, yCurr;
 TRect rect, sursa, destinatie;
 int x,y,r=0;
 
@@ -22,7 +24,13 @@ __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
 {
 Timer2->Enabled=false;
-PaintBox2->Canvas->MoveTo(0,PaintBox2->Height/2);
+
+
+     xCurr = PaintBox2->Width-50;
+     yCurr = PaintBox2->Height/2;
+     PaintBox2->Canvas->MoveTo(xCurr, yCurr);
+
+//PaintBox2->Canvas->MoveTo(0,PaintBox2->Height/2);
 }
 //---------------------------------------------------------------------------
 
@@ -42,24 +50,24 @@ void __fastcall TForm1::Timer2Timer(TObject *Sender)
 {
 randomize();
 r=random(185);
-x=random(30);
-y=random(30);
 Timer1->Tag=r;
 Panel2->Height=r;
 
-PaintBox2->Canvas->Pen->Color=clRed;
-// Instructiune MoveTo muta cursorul grafic in pozitia X,Y
-//Constructia Edit1->Text.ToInt() permite convertirea numarului care se introduce in casuta //de editare dintr-un ansistring intr-un numar intreg
-
-//Instructiunea LineTo deseneaza o linie din pozitia curenta in pozitia X,Y
-PaintBox2->Canvas->LineTo(x,y);
-PaintBox2->Canvas->MoveTo(x,y);
-sursa=Rect(0,0,185,185);
-destinatie=Rect(176,72,185,185);
- //Copiaza imagina incadrata de dreptunghiul sursa  in dreptunghiul destinatie
-  PaintBox2->Canvas->CopyRect(destinatie,PaintBox2->Canvas,sursa);
+ yCurr = PaintBox2->Height/3 + rand() % PaintBox2->Height/3;
 
 
+     PaintBox2->Canvas->Pen->Color = clRed;
+     PaintBox2->Canvas->LineTo(xCurr+5, yCurr);
+     PaintBox2->Canvas->MoveTo(xCurr, yCurr);
+
+     sursa = Rect(5, 0, PaintBox2->Width-1, PaintBox2->Height);
+     destinatie = Rect(1, 0, PaintBox2->Width-5, PaintBox2->Height);
+     PaintBox2->Canvas->CopyRect(destinatie, PaintBox2->Canvas, sursa);
+
+     sursa = Rect(1, 0, 8, PaintBox2->Height);
+     destinatie = Rect(PaintBox2->Width-8, 0,
+                PaintBox2->Width-1, PaintBox2->Height);
+     PaintBox2->Canvas->CopyRect(destinatie, PaintBox2->Canvas, sursa);
 
 }
 //---------------------------------------------------------------------------
@@ -67,6 +75,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 Button3->Enabled=false;
 Timer2->Enabled=true;
+
 }
 //---------------------------------------------------------------------------
 
@@ -74,6 +83,19 @@ Timer2->Enabled=true;
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
 exit(42);        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::PaintBox2Paint(TObject *Sender)
+{
+     rect = Rect(0, 0, PaintBox2->Width, PaintBox2->Height);
+
+     PaintBox2->Canvas->Pen->Color = clBlack;
+     PaintBox2->Canvas->Brush->Color = clWhite;
+     PaintBox2->Canvas->Rectangle(rect);
+     PaintBox2->Canvas->Brush->Color = clBlack;
+     PaintBox2->Canvas->Brush->Style = bsCross;
+     PaintBox2->Canvas->FloodFill(1, 1, clBlack, fsBorder);
 }
 //---------------------------------------------------------------------------
 
