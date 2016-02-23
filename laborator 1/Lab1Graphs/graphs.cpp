@@ -48,22 +48,22 @@ Edit1->Text=(AnsiString)buf;
 void __fastcall TForm1::Timer2Timer(TObject *Sender)
 {
 randomize();
-r=random(185);
+r=rand() % Panel1->Height;
 Timer1->Tag=r;
 Panel2->Height=r;
 
- y = PaintBox2->Height/3 + rand() % PaintBox2->Height/3;
+ y =  random(100) ;
 
 
      PaintBox2->Canvas->Pen->Color = clRed;
-     PaintBox2->Canvas->LineTo(x+5, y);
+     PaintBox2->Canvas->LineTo(x+1, y);
      PaintBox2->Canvas->MoveTo(x, y);
 
-     sursa = Rect(5, 0, PaintBox2->Width-1, PaintBox2->Height);
-     destinatie = Rect(1, 0, PaintBox2->Width-5, PaintBox2->Height);
+     sursa = Rect(1, 0, PaintBox2->Width-1, PaintBox2->Height);
+     destinatie = Rect(0, 0, PaintBox2->Width-2, PaintBox2->Height);
      PaintBox2->Canvas->CopyRect(destinatie, PaintBox2->Canvas, sursa);
 
-     sursa = Rect(1, 0, 8, PaintBox2->Height);
+     sursa = Rect(1, 0, 8, PaintBox2->Width);
      destinatie = Rect(PaintBox2->Width-8, 0,
                 PaintBox2->Width-1, PaintBox2->Height);
      PaintBox2->Canvas->CopyRect(destinatie, PaintBox2->Canvas, sursa);

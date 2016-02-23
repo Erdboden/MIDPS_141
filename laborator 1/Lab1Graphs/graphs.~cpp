@@ -14,7 +14,6 @@ TForm1 *Form1;
 struct date d;
 struct time t;
 //TRect rect, sursa, destinatie;
-int xCurr, yCurr;
 TRect rect, sursa, destinatie;
 int x,y,r=0;
 
@@ -26,9 +25,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 Timer2->Enabled=false;
 
 
-     xCurr = PaintBox2->Width-50;
-     yCurr = PaintBox2->Height/2;
-     PaintBox2->Canvas->MoveTo(xCurr, yCurr);
+     x = PaintBox2->Width-50;
+     y = PaintBox2->Height/2;
+     PaintBox2->Canvas->MoveTo(x, y);
 
 //PaintBox2->Canvas->MoveTo(0,PaintBox2->Height/2);
 }
@@ -43,7 +42,7 @@ getdate(&d);
 gettime(&t);
 sprintf(buf,"%02d-%02d-%4d %02d:%02d:%02d",d.da_day,d.da_mon,d.da_year,
 t.ti_hour,t.ti_min,t.ti_sec);
-Edit1->Text=(AnsiString)buf;        
+Edit1->Text=(AnsiString)buf;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer2Timer(TObject *Sender)
@@ -53,12 +52,12 @@ r=random(185);
 Timer1->Tag=r;
 Panel2->Height=r;
 
- yCurr = PaintBox2->Height/3 + rand() % PaintBox2->Height/3;
+ y = PaintBox2->Height/3 + rand() % PaintBox2->Height/3;
 
 
      PaintBox2->Canvas->Pen->Color = clRed;
-     PaintBox2->Canvas->LineTo(xCurr+5, yCurr);
-     PaintBox2->Canvas->MoveTo(xCurr, yCurr);
+     PaintBox2->Canvas->LineTo(x+5, y);
+     PaintBox2->Canvas->MoveTo(x, y);
 
      sursa = Rect(5, 0, PaintBox2->Width-1, PaintBox2->Height);
      destinatie = Rect(1, 0, PaintBox2->Width-5, PaintBox2->Height);
