@@ -4,6 +4,10 @@
 *.lo
 *.o
 *.obj
+*.~cpp
+*.~ddp
+*.~dfm
+*.~h
 
 # Precompiled Headers
 *.gch
@@ -27,3 +31,42 @@
 *.exe
 *.out
 *.app
+
+# Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs) + Compiled Dynamic libraries
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CodeBlocks artefacts
+*.depend
+*.layout
