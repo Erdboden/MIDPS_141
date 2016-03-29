@@ -30,10 +30,12 @@ namespace CSharpCalculator
           {
                if ((result.Text == "0") || (operation_pressed))
                     result.Clear();
-
+                   
+               
                operation_pressed = false;
                Button b = (Button)sender;
-               result.Text = result.Text + b.Text;
+                    result.Text = result.Text + b.Text;
+               //button16.Text = (result.Text[0]).ToString();
           }
 
           private void button16_Click(object sender, EventArgs e)
@@ -53,29 +55,35 @@ namespace CSharpCalculator
 
           private void button18_Click(object sender, EventArgs e)
           {
-               
-               equation.Text = "";
-               switch (operation)
+               if (!result.Text.Contains("NaN"))
                {
-                    case "+":
-                         result.Text = (value + Double.Parse(result.Text)).ToString();
-                         break;
-                    case "-":
-                         result.Text = (value - Double.Parse(result.Text)).ToString();
-                         break;
-                    case "*":
-                         result.Text = (value * Double.Parse(result.Text)).ToString();
-                         break;
-                    case "/":
-                         result.Text = (value / Double.Parse(result.Text)).ToString();
-                         break;
-                    case "^":
-                         result.Text = (Math.Pow(value,Double.Parse(result.Text))).ToString();
-                         break;
-                    default:
-                         break;
-               }//end switch
-              
+
+                    equation.Text = "";
+                    switch (operation)
+                    {
+                         case "+":
+                              result.Text = (value + Double.Parse(result.Text)).ToString();
+                              break;
+                         case "-":
+                              result.Text = (value - Double.Parse(result.Text)).ToString();
+                              break;
+                         case "*":
+                              result.Text = (value * Double.Parse(result.Text)).ToString();
+                              break;
+                         case "/":
+                              if (result.Text == "0")
+                                   result.Text = "NaN";
+                              result.Text = (value / Double.Parse(result.Text)).ToString();
+                              break;
+                         case "^":
+                              result.Text = (Math.Pow(value, Double.Parse(result.Text))).ToString();
+                              break;
+                         default:
+                              // result.Text = (value).ToString();
+                              break;
+                    }//end switch
+                    operation = "";
+               }
           }
 
           private void button17_Click(object sender, EventArgs e)
@@ -95,6 +103,21 @@ namespace CSharpCalculator
                result.Text = (-1 * Double.Parse(result.Text)).ToString();
                
               
+          }
+
+          private void button11_Click(object sender, EventArgs e)
+          {
+               Button b = (Button)sender;
+
+               if (result.Text.Contains(','))
+                    result.Text = result.Text;
+               else
+                    result.Text = result.Text + b.Text;
+          }
+
+          private void result_TextChanged(object sender, EventArgs e)
+          {
+
           }
      }
 }

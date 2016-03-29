@@ -162,7 +162,7 @@
                this.button11.TabIndex = 10;
                this.button11.Text = ",";
                this.button11.UseVisualStyleBackColor = true;
-               this.button11.Click += new System.EventHandler(this.button_Click);
+               this.button11.Click += new System.EventHandler(this.button11_Click);
                // 
                // button12
                // 
@@ -242,13 +242,16 @@
                // 
                // result
                // 
+               this.result.BackColor = System.Drawing.SystemColors.Window;
                this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                this.result.Location = new System.Drawing.Point(15, 12);
                this.result.Name = "result";
+               this.result.ReadOnly = true;
                this.result.Size = new System.Drawing.Size(300, 38);
                this.result.TabIndex = 18;
                this.result.Text = "0";
                this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+               this.result.TextChanged += new System.EventHandler(this.result_TextChanged);
                // 
                // equation
                // 
