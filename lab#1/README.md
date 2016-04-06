@@ -1,4 +1,4 @@
-##Programul 1.a:
+﻿##Programul 1.a:
 
 Este necesar de a crea o formă cu trei butoane, o casetă de editare, şi doua etichete, folosind componente VCL. În caseta de editare se afişează un număr care poate fi modificat utilizînd doua dintre butoane, care incrementează sau decrementează numărul. Al trei-lea buton este folosit pentru a ieşi din program. O eticheta arată starea numărului din caseta de editare iar cealaltă etichetă conţine titlul programului.
 
@@ -8,4 +8,4 @@ Este necesar de a crea o formă cu trei butoane, o casetă de editare, şi doua 
 
 ##Programul 1.c:
 
-Acest program foloseşte componente VCL Pentru a simula consumul de resurse a calculatorului. În fereasta aplicaţiei create este afişat un bargraf şi un grafic. Bargraful nu este altceva decît doua componente TPanel suprapuse, de culori diferite, iar la fiecare pas se generează un număr random ce modifica înălţimea TPanel-ului ce se afla deasupra. Pentru a crea graficul se utilizează un element TPaintbox, în care este desenată o grila. La fiecare pas are loc generarea un număr ce va reprezenta poziţia unde este trasat graficul, după care cu ajutorul funcţiei CopyRect() este deplasat conţinutul TPaintbox-ului la dreapta. Două butoane sunt utilizate pentru pornirea şi oprirea simulării.
+Acest program foloseşte componente VCL Pentru a simula consumul de resurse a calculatorului. În fereasta aplicaţiei create este afişat un bargraf şi un grafic. Bargraful nu este altceva decît doua componente TPanel suprapuse, de culori diferite, iar la fiecare pas se generează un număr random ce modifica înălţimea TPanel-ului ce se afla deasupra. Pentru a crea graficul se utilizează un element TPaintbox, în care este desenată o grila. La fiecare pas are loc generarea un număr ce va reprezenta poziţia unde este trasat graficul, după care cu ajutorul funcţiei CopyRect() este deplasat conţinutul TPaintbox-ului la dreapta. Două butoane sunt utilizate pentru pornirea şi oprirea simulării. z
